@@ -16,7 +16,14 @@ const speakBtn = document.getElementById('speak-btn');
 
 
 const saveUrlBtn = document.getElementById('saveUrl');
-document.getElementsByTagName('p').onclick = (e) => speak(e.target.textContent);
+const textSections = document.getElementsByTagName('p');
+
+for (let textSection of textSections) {
+    textSection.addEventListener('click', () => {
+        const text = textSection.textContent;
+        speak(text);
+    });
+};
 
 
 
