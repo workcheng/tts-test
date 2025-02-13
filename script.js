@@ -16,6 +16,7 @@ const speakBtn = document.getElementById('speak-btn');
 
 
 const saveUrlBtn = document.getElementById('saveUrl');
+document.getElementsByTagName('p').onclick = (e) => speak(e.target.textContent);
 
 
 
@@ -81,7 +82,7 @@ function addParagraph(tabContent) {
         const paragraph = document.createElement('p');
         paragraph.contentEditable = true;
         paragraph.textContent = "可编辑的文本段落";
-        paragraph.onclick = () => speak(paragraph.textContent);
+        // paragraph.onclick = () => speak(paragraph.textContent);
         tabContent.appendChild(paragraph);
         return
     }
