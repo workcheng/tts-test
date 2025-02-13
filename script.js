@@ -76,7 +76,16 @@ function addParagraph(tabContent) {
     // 获取查询字符串参数对象
     const params = url.searchParams;
     // 获取特定参数的值
-    const param1 = decodeURIComponent(params.get('param1'));
+    const rawParam1 = params.get('param1')
+    if (!rawParam1) {
+        const paragraph = document.createElement('p');
+        paragraph.contentEditable = true;
+        paragraph.textContent = "可编辑的文本段落";
+        paragraph.onclick = () => speak(paragraph.textContent);
+        tabContent.appendChild(paragraph);
+        return
+    }
+    const param1 = decodeURIComponent(rawParam1);
     const param2 = params.get('param2');
     console.log('param1 的值:', param1);
     console.log('param2 的值:', param2);
